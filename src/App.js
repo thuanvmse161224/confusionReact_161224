@@ -4,6 +4,7 @@ import { Navbar,NavbarBrand } from 'reactstrap';
 import Welcome from './components/Welcome';
 import Comment from './components/Comment';
 import Car from './components/Car';
+import Menu from './components/MenuComponent';
 
 const comment = {
   date: new Date(),
@@ -15,7 +16,7 @@ const comment = {
 }
 
 class App extends React.Component {
-  /*
+  
   render() {
     return (
       <div className="App">
@@ -24,15 +25,11 @@ class App extends React.Component {
             <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
           </div>
         </Navbar>
-        <Welcome name="Thuan"/>
-        <Comment date={comment.date} text={comment.text} author={comment.author} />
+        <Menu/>
       </div>    
     )
   }
-  */
-  render() {
-    return <Car/>
-  }
+  
 }
 
 
