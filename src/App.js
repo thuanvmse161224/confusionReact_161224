@@ -3,6 +3,7 @@ import './App.css';
 import { Navbar,NavbarBrand } from 'reactstrap';
 import Welcome from './components/Welcome';
 import Comment from './components/Comment';
+import Car from './components/Car';
 
 const comment = {
   date: new Date(),
@@ -14,6 +15,7 @@ const comment = {
 }
 
 class App extends React.Component {
+  /*
   render() {
     return (
       <div className="App">
@@ -26,6 +28,10 @@ class App extends React.Component {
         <Comment date={comment.date} text={comment.text} author={comment.author} />
       </div>    
     )
+  }
+  */
+  render() {
+    return <Car/>
   }
 }
 
