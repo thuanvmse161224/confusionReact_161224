@@ -30,6 +30,7 @@ class Menu extends Component {
             );
         });
 
+        console.log(this.state.selectedDish);
         return (
             <div className="container">
                 <div className="row">
@@ -37,7 +38,9 @@ class Menu extends Component {
                 </div>
                 <div className="row">
                     <div className="col-12 col-md-5 m-1">
-                        <DishDetail dish={this.state.selectedDish}/>
+                        <DishDetail 
+                            dish={this.state.selectedDish}
+                        />
                     </div>
                 </div>
             </div>
