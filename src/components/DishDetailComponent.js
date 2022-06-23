@@ -6,48 +6,36 @@ class DishDetail extends Component {
         super(props);
     } 
 
-    renderDish (dish) {
-        const disha = dish.dish; 
-        return(
-            <Card>
-                <CardImg top src={disha.image} alt={disha.name}/>
-                <CardBody>
-                    <CardTitle>{disha.name}</CardTitle>
-                    <CardText>{disha.description}</CardText>
-                </CardBody>
-            </Card>                
-        );
-        
-    }
-
-    renderComments(comments) {        
-        const comment = comments.comments.map((item) => {
-            return (
-                <div>
-                    <p>{item.comment}</p>
-                    <p>{item.author} {item.date}</p>
-                </div>
-            );
-        });
-        
-        return (
-            <div className="col-12 col-sm-7">
-                <h2>comments</h2>
-                {comment}
-            </div>
-        );
-        
-    }
-
     render() {
         if (this.props.dish != null) {
             const dish = this.props.dish;
-            const comments = dish.comments;
+            const comment = dish.comments.map((item) => {
+                return (
+                    <div>
+                        <p>{item.comment}</p>
+                        <p>{item.author} {item.date}</p>
+                    </div>
+                );
+            });
+
             return (
-                <div>
-                        <this.renderDish dish={dish}/>
-                        <this.renderComments comments={comments} />
+                <div className="container">
+                <div className="row">
+                    <div className="col-12 col-sm-5">
+                        <Card>
+                            <CardImg top src={dish.image} alt={dish.name}/>
+                            <CardBody>
+                                <CardTitle>{dish.name}</CardTitle>
+                                <CardText>{dish.description}</CardText>
+                            </CardBody>
+                        </Card>
+                    </div>
+                    <div className="col-12 col-sm-7">
+                        <h2>comments</h2>
+                        {comment}
+                    </div>
                 </div>
+            </div>
             )
         }
         else {
