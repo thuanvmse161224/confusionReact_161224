@@ -7,14 +7,7 @@ class DishDetail extends Component {
     } 
 
     renderDish (dish) {
-        //you received an object when get passed in tab 
-        // as '{a}', and param form is 'a'
-        //gotta need to de-ref 
-        const disha = dish.dish;
-        console.log("go to renderDish, success!");
-        console.log("here in renderDish, dish = received this.props.dish, " +
-                    "with another layer of dummy object, named 'dish' !");
-        console.log(disha);        
+        const disha = dish.dish; 
         return(
             <Card>
                 <CardImg top src={disha.image} alt={disha.name}/>
@@ -27,12 +20,8 @@ class DishDetail extends Component {
         
     }
 
-    renderComments(comments) {
-        console.log(comments);
-        console.log(comments.comments);
-        
+    renderComments(comments) {        
         const comment = comments.comments.map((item) => {
-            console.log("access map func, success!");
             return (
                 <div>
                     <p>{item.comment}</p>
@@ -52,25 +41,14 @@ class DishDetail extends Component {
 
     render() {
         if (this.props.dish != null) {
-            /*
-            console.log("in render! dish here is ");
-            console.log(dish);
-            console.log("in render, when const dish gets call as {dish} then");
-            console.log({dish});
-            //here passing a new object that contains an object
-            */
             const dish = this.props.dish;
             const comments = dish.comments;
-
             return (
                 <div>
                         <this.renderDish dish={dish}/>
                         <this.renderComments comments={comments} />
                 </div>
             )
-
-
-
         }
         else {
             return(
